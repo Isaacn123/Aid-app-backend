@@ -100,18 +100,18 @@ def delete_event(request, pk):
 @permission_classes([AllowAny])
 def create_category(request):
     print(f"DATAFG_before: {request.data}")
-    if request.method == "POST":
-        print(f"DATAFG: {request.data}")
-        data = request.data
-        get_category = EventCategory.objects.filter(category_name = data['category_name']).first()
-        if get_category:
-            return Response({"error":"category already exists"}, status=status.HTTP_400_BAD_REQUEST)
-        serializer = EventCategorySerializer(data=data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        else:
-            return Response({"error":"fields not valid"}, status=status.HTTP_400_BAD_REQUEST)
+    # if request.method == "POST":
+    #     print(f"DATAFG: {request.data}")
+    #     data = request.data
+    #     get_category = EventCategory.objects.filter(category_name = data['category_name']).first()
+    #     if get_category:
+    #         return Response({"error":"category already exists"}, status=status.HTTP_400_BAD_REQUEST)
+    #     serializer = EventCategorySerializer(data=data)
+    #     if serializer.is_valid():
+    #         serializer.save()
+    #         return Response(serializer.data, status=status.HTTP_201_CREATED)
+    #     else:
+    #         return Response({"error":"fields not valid"}, status=status.HTTP_400_BAD_REQUEST)
 
 @api_view(['GET'])
 @permission_classes([AllowAny])
