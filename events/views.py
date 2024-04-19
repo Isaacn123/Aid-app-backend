@@ -100,6 +100,7 @@ def delete_event(request, pk):
 @permission_classes([AllowAny])
 def create_category(request):
     if request.method == "POST":
+        print(f"DATA: {request.data}")
         data = request.data
         get_category = EventCategory.objects.filter(category_name = data['category_name']).first()
         if get_category:
