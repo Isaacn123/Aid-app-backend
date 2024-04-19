@@ -99,6 +99,7 @@ def delete_event(request, pk):
 @api_view(['POST'])
 @permission_classes([AllowAny])
 def create_category(request):
+    print(f"DATAFG_before: {request.data}")
     if request.method == "POST":
         print(f"DATAFG: {request.data}")
         data = request.data
