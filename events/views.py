@@ -102,12 +102,12 @@ def create_category(request):
     # return Response({"data": get_category})
     if request.method == "POST":
         # print(f"DATAFG: {request.data}")
-        data = request.data['category']
+        data = request.data
         get_category = EventCategory.objects.filter(category_name = data['category_name']).first()
         if get_category:
             return Response({"error":"category already exists"}, status=status.HTTP_400_BAD_REQUEST)
         print(f"DATAVG_PASS: {data}")
-        serializer = EventCategorySerializer(data=data)
+        serializer = EventCategorySerializer(get_category,data=data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
