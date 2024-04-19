@@ -21,7 +21,7 @@ class Events(TimestampedModel):
     organization = models.ForeignKey(Organization, on_delete=models.CASCADE, blank=True, null=True)
     category = models.ForeignKey(EventCategory, on_delete=models.CASCADE, blank=True, null=True)
     event_name = models.CharField(max_length=100)
-    event_description = models.TextField(max_length=200)
+    event_description = models.TextField(max_length=600)
     event_media = models.CharField(max_length=1000)
     event_amount = models.CharField(max_length=100)
     amount_donated = models.CharField(max_length=100, null=True, blank=True)
