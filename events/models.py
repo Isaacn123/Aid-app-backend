@@ -10,7 +10,7 @@ from organization.models import Organization
 class EventCategory(TimestampedModel):
     category_id = models.UUIDField(default=uuid.uuid4, editable=False)
     category_name = models.CharField(max_length=100)
-    category_description = models.TextField(max_length=200)
+    category_description = models.TextField(max_length=800)
 
     def __str__(self):
         return self.category_name
