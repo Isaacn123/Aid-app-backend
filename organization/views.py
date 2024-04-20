@@ -41,7 +41,8 @@ def create_organization(request):
                     org.save()
                     return Response(org.data, status=status.HTTP_201_CREATED)
                 else:
-                    return Response({"error":"something happened"}, status=status.HTTP_400_BAD_REQUEST)
+                    # {"error":"something happened"}
+                    return Response(org.errors, status=status.HTTP_400_BAD_REQUEST)
         except Organization.DoesNotExist:
             return Response({"error":"organization doesn't exist"}, status=status.HTTP_400_BAD_REQUEST)
 
