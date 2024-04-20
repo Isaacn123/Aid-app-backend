@@ -108,8 +108,6 @@ def create_category(request):
             return Response({"error":"category already exists"}, status=status.HTTP_400_BAD_REQUEST)
         print(f"DATAVG_PASS: {data}")
         serializer = EventCategorySerializer(data=data)
-        serializer.is_valid()
-        serializer.save()
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
