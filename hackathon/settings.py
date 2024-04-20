@@ -111,40 +111,40 @@ WSGI_APPLICATION = 'hackathon.wsgi.application'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 print(DEBUG)
-# if not DEBUG: 
-#       DATABASES = {
-#       'default':{
-#         'ENGINE': 'django.db.backends.mysql',
-#         'OPTIONS':{
-#             'read_default_file': '/etc/mysql/my.cnf',
-#            },
-#         'NAME': os.environ.get('DATABASE_NAME'),
-#         'USER': os.environ.get('USERNAME'),
-#         'PASSWORD': os.environ.get('PASSWORD'),
-#         'HOST': '127.0.0.1',
-#         'PORT': '3306'
-#          }
-#       }
-# else:
-    # DATABASES = {
-    #   'default':{
-    #     'ENGINE': 'django.db.backends.mysql',
-    #     'OPTIONS':{
-    #         'read_default_file': '/etc/mysql/my.cnf',
-    #        },
-    #     'NAME': os.environ.get('DATABASE_NAME'),
-    #     'USER': os.environ.get('USERNAME'),
-    #     'PASSWORD': os.environ.get('PASSWORD'),
-    #     'HOST': '127.0.0.1',
-    #     'PORT': '3306'
-    #      }
-    #   }
-DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
-        }
-}
+if not DEBUG: 
+      DATABASES = {
+      'default':{
+        'ENGINE': 'django.db.backends.mysql',
+        'OPTIONS':{
+            'read_default_file': '/etc/mysql/my.cnf',
+           },
+        'NAME': os.environ.get('DATABASE_NAME'),
+        'USER': os.environ.get('USERNAME'),
+        'PASSWORD': os.environ.get('PASSWORD'),
+        'HOST': '127.0.0.1',
+        'PORT': '3306'
+         }
+      }
+else:
+    DATABASES = {
+      'default':{
+        'ENGINE': 'django.db.backends.mysql',
+        'OPTIONS':{
+            'read_default_file': '/etc/mysql/my.cnf',
+           },
+        'NAME': os.environ.get('DATABASE_NAME'),
+        'USER': os.environ.get('USERNAME'),
+        'PASSWORD': os.environ.get('PASSWORD'),
+        'HOST': '127.0.0.1',
+        'PORT': '3306'
+         }
+      }
+# DATABASES = {
+#         'default': {
+#             'ENGINE': 'django.db.backends.sqlite3',
+#             'NAME': BASE_DIR / 'db.sqlite3',
+#         }
+# }
 
 
 # Password validation
