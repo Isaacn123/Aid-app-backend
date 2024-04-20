@@ -112,7 +112,8 @@ def create_category(request):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         else:
-            return Response({"error":"fields not valid"}, status=status.HTTP_400_BAD_REQUEST)
+            # {"error":"fields not valid"}
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 @api_view(['GET'])
 @permission_classes([AllowAny])
